@@ -1,0 +1,37 @@
+.button {
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 0;
+        background: black;
+    }
+    &:before {
+        transition: height .3s linear;
+    }
+    &:after {
+        transition: height .3s .2s linear;
+    }
+    &:hover {
+        &:before,
+        &:after {
+            height: 100%;
+        }
+
+    }
+    display: inline-block;
+    color: white;
+    text-transform: uppercase;
+    background: white;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    
+    $style: (padding-left, padding-right);
+    @include interpolate($style, $min_screen_mobile, $actual_design_width, 20px, 60px);
+    $style: (padding-top, padding-bottom);
+    @include interpolate($style, $min_screen_mobile, $actual_design_width, 10px, 30px);
+}

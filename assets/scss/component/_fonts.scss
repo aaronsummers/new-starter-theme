@@ -1,0 +1,41 @@
+*, *:before, *:after {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: normal;
+	font-style: normal;
+}
+
+//@include font-face(font-file-name, folder-name, 500, normal, eot woff2 woff);
+
+$regular: Arial, Helvetica, sans-serif;
+
+@include font-face('Fontello', 'icons', 400, normal, ttf woff2 woff);
+$icons: Fontello;
+i[class*=icon]:before {
+	font-family: $icons;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+}
+
+
+
+html, body {
+	@extend %font18;
+	line-height: 1.2;
+	font-family: $regular;	
+}
+
+h1, h2, h3 {
+	font-weight: 700;
+}
+
+a {
+	text-decoration: none;
+}

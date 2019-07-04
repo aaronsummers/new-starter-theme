@@ -1,0 +1,37 @@
+.hero {
+    .hero-image {
+        @extend %cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;        
+    }
+    .hero-content {
+        position: absolute;
+        bottom: 10%;
+        z-index: 2;
+    }
+    h1,
+    .hero-button {
+        background: blue;
+        color: white;
+        white-space: pre;
+    }
+    h1 { 
+        @extend %font72;
+        display: inline;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .hero-button {
+        @extend %font24;
+        position: relative;
+        display: inline-block;
+        clear: both;
+        padding: .8rem 0;
+        text-decoration: none;
+    }
+    position: relative;
+    padding-bottom: 36%;
+}

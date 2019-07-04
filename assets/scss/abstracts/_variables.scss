@@ -1,0 +1,29 @@
+// Used for converting pixels to rems @function()
+$base_font_size: 16;
+// Convert pixels to rems
+@function px($pxval, $base: $base_font_size) {
+  @return #{$pxval / $base}rem;
+}
+
+
+// CSS Easing
+$ease: cubic-bezier(0.25, 0.46, 0.45, 0.94); // /* easeOutQuad */
+
+// Images
+$background_img: url();
+
+// Screen Widths
+$actual_design_width: 1366px; 
+$max_screen_retina: 5120px;
+$min_screen_mobile: 320px;
+// Responsive Defaults
+$tablet_landscape: px(1024);
+$tablet_portrait: px(720);
+
+// Positioning
+$center: 0 auto;  
+$padding: px(80) px(40);
+
+// Shadows
+$box-shadow_lrg: 0 0 px(25) px(2) rgba(black, .45);
+$box-shadow_sml: 0 0 px(15) px(2) rgba(black, .1);

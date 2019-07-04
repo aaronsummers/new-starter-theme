@@ -1,0 +1,19 @@
+* {
+	box-sizing: border-box;
+}
+header:before, section:before, aside:before, footer:before, ul:before, .clearfix:before,
+header:after, section:after, aside:after, footer:after, ul:after, .clearfix:after {
+	content: "";
+	display: table;
+}
+header:after, section:after, aside:after, footer:after, ul:after, .clearfix:after {
+	clear: both;
+}
+
+/*
+ * Default Widths
+ */ 
+.wrapper {
+	max-width: 1200px;
+	margin: $center;	
+}

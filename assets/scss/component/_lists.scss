@@ -1,0 +1,39 @@
+ol, ul {
+	li {
+		margin-bottom: 1em;
+	}
+	padding-left: 1.4em;	
+}
+
+ol li {
+	list-style: decimal-leading-zero;
+	
+	> ol > li {
+		list-style: lower-alpha;
+		
+		> ol > li {
+			list-style: lower-roman;	
+		}	
+	}	
+}
+ul li {
+	list-style: disc;
+	
+	> ul > li {
+		list-style: circle;
+		
+		> ul > li {
+			list-style: square;	
+		}	
+	}	
+}
+ul.custom {
+	li {
+		&:before {
+			position: absolute;
+			left: 0;
+
+		}
+		position: relative;
+	}
+}

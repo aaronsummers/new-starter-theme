@@ -1,0 +1,103 @@
+// Colour functions 
+@function grey($key) {
+  @if map-has-key($blue, $key) {
+    @return map-get($blue, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $blue.";
+  @return null;
+}
+
+@function grey($key) {
+  @if map-has-key($grey, $key) {
+    @return map-get($grey, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $grey.";
+  @return null;
+}
+
+
+// I'm now recommending this technique:
+@mixin interpolate($properties, $min-screen, $max-screen, $min-value, $max-value) {
+	& {
+		@each $property in $properties {
+			#{$property}: $min-value;
+		}
+
+		@media screen and (min-width: $min-screen) {
+			@each $property in $properties {
+				#{$property}: calc-interpolation($min-screen, $min-value, $max-screen, $max-value); 
+			}
+		}
+
+		@media screen and (min-width: $max-screen) {
+			@each $property in $properties {
+				#{$property}: $max-value;
+			}
+		}
+	}
+}
+
+// Requires the calc-interpolation function which can also be used independently
+
+@function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+	$a: ($max-value - $min-value) / ($max-screen - $min-screen);
+	$b: $min-value - $a * $min-screen; 
+
+	$sign: "+";
+	@if ($b < 0) {
+		$sign: "-";
+		$b: abs($b);
+	}
+	@return calc(#{$a*100}vw #{$sign} #{$b});
+}
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+// Usage: @include font-face(font-file-name, folder-name, 500, normal, eot woff2 woff);
+
+@mixin font-face($file_name, $font_folder, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+    $filepath: "inc/fonts/" + $font_folder + "/" + $file_name;
+
+    $src: null;
+
+    $extmods: (
+        eot: "?",
+        svg: "#" + str-replace($file_name, " ", "_")
+    );
+
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype"
+    );
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($filepath + "." + $extmod)) format(quote($format)), comma);
+    }
+
+    @font-face {
+        font-family: quote($file_name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}

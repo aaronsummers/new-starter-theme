@@ -1,0 +1,25 @@
+/* Information boxes */
+.alert {
+	display: block;
+	border-style: solid;
+	border-width: 1px;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+}
+.alert-warning {
+	border-color: #ece2c0;
+	background-color: #fdf3d1;
+	color: #666;
+}
+pre code {
+	padding: 3px;
+	margin: 0;
+	display: inline-block;
+	font-size: 12px;
+	line-height: 20px;
+	background: #fdf3d1;
+	border: 1px solid #ece2c0;
+	color: #666;
+	border-radius: 3px;
+}

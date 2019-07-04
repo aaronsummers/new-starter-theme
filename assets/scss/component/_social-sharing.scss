@@ -1,0 +1,32 @@
+.social-sharing {
+	margin: 1rem 0;
+}
+.js-social-share {
+	&:hover {
+		opacity: .8;
+	}
+	span {
+		display: inline-block;
+		margin-left: 3px;
+		padding-left: 6px;
+	}
+	display: inline-block;
+	padding: px(4) px(10);
+	border-radius: 3px;
+	color: white;
+	margin: 3px 6px 3px 0;
+	text-decoration: none;
+	font-size: px(14);
+	text-shadow: 1px 1px 0 rgba(black, .23);
+	border: 1px solid rgba(black, .1);
+	transition: all $ease .2s;
+}
+.twitter {
+	background: #1e9fe4;
+}
+.linkedin {
+	span {
+		border-left: 1px solid darken(#0382be,8%);
+	}
+	background: #0382be;
+}

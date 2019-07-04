@@ -1,0 +1,51 @@
+%padding-base-top {
+    $style: padding-top;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 20px, 60px);
+}
+%padding-base-bottom {
+    $style: padding-bottom;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 20px, 60px);
+}
+%padding-base-left {
+    $style: padding-left;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 10px, 30px);
+}
+%padding-base-right {
+    $style: padding-right;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 10px, 30px);
+}
+
+%padding-base-top-double {
+    $style: padding-top;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 40px, 120px);
+}
+%padding-base-bottom-double {
+    $style: padding-bottom;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 40px, 120px);
+}
+
+%padding-base-vertical {
+    $style: (padding-top, padding-bottom);
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 20px, 60px);
+}
+%padding-base-horizontal {
+    $style: (padding-left, padding-right);
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 10px, 30px);
+}
+
+%spacing-slide {
+    $style: margin;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 10px, 30px);
+}
+
+
+
+%padding-article-top {
+    $style: padding-top;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 10px, 30px);
+}
+
+%padding-article-bottom {
+    $style: padding-bottom;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 30px, 90px);
+}

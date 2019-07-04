@@ -1,0 +1,486 @@
+//colors
+$color_silver_chalice_approx: #aaa;
+$white: #fff;
+$black_15: rgba(0, 0, 0, 0.15);
+$color_mountain_mist_approx: #999999;
+$color_black_haze_approx: #f6f6f6;
+$color_gallery_approx: #eee;
+$wild_sand: #f4f4f4;
+$black_10: rgba(0, 0, 0, 0.1);
+$color_tundora_approx: #444;
+$color_celeste_approx: #ccc;
+$color_royal_blue_approx: #3875d7;
+$color_cerulean_blue_approx: #2a62bc;
+$color_tapa_approx: #777;
+$color_gray_nurse_approx: #e8e8e8;
+$black_5: rgba(0, 0, 0, 0.05);
+$color_mine_shaft_approx: #333;
+$color_mercury_approx: #e4e4e4;
+$color_storm_dust_approx: #666;
+$color_quill_gray_approx: #d4d4d4;
+$color_cornflower_blue_approx: #5897fb;
+$black_30: rgba(0, 0, 0, 0.3);
+$color_log_cabin_approx: #222;
+
+//fonts
+$font_0: sans-serif;
+
+//urls
+$url_0: url(assets/img/chosen/chosen-sprite.png);
+$url_1: url(assets/img/chosen/chosen-sprite@2x.png);
+
+//@extend-elements
+//original selectors
+//.chosen-container .search-choice .group-name, .chosen-container .chosen-single .group-name
+%extend_1 {
+  margin-right: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: normal;
+  color: $color_mountain_mist_approx;
+}
+
+//original selectors
+//.chosen-container .search-choice .group-name:after, .chosen-container .chosen-single .group-name:after
+%extend_2 {
+  content: ":";
+  padding-left: 2px;
+  vertical-align: top;
+}
+
+
+.chosen-container {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 13px;
+  //Instead of the line below you could use @include user-select($select)
+  user-select: none;
+  * {
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: border-box;
+  }
+  .chosen-drop {
+    position: absolute;
+    top: 100%;
+    z-index: 1010;
+    width: 100%;
+    border: 1px solid $color_silver_chalice_approx;
+    border-top: 0;
+    background: $white;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 4px 5px $black_15;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(100% 100%);
+  }
+  a {
+    cursor: pointer;
+  }
+  .chosen-results {
+    color: $color_tundora_approx;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0 4px 4px 0;
+    padding: 0 0 0 4px;
+    max-height: 240px;
+    li {
+      display: none;
+      margin: 0;
+      padding: 5px 6px;
+      list-style: none;
+      line-height: 15px;
+      word-wrap: break-word;
+      &.active-result {
+        display: list-item;
+        cursor: pointer;
+      }
+      &.disabled-result {
+        display: list-item;
+        color: $color_celeste_approx;
+        cursor: default;
+      }
+      &.highlighted {
+        background-color: $color_royal_blue_approx;
+        background-image: linear-gradient($color_royal_blue_approx 20%, $color_cerulean_blue_approx 90%);
+        color: $white;
+      }
+      &.no-results {
+        color: $color_tapa_approx;
+        display: list-item;
+        background: $wild_sand;
+      }
+      &.group-result {
+        display: list-item;
+        font-weight: bold;
+        cursor: default;
+      }
+      &.group-option {
+        padding-left: 15px;
+      }
+      em {
+        font-style: normal;
+        text-decoration: underline;
+      }
+    }
+  }
+  &.chosen-with-drop .chosen-drop {
+    clip: auto;
+    clip-path: none;
+  }
+  .search-choice .group-name {
+    @extend %extend_1;
+    &:after {
+      @extend %extend_2;
+    }
+  }
+  .chosen-single .group-name {
+    @extend %extend_1;
+    &:after {
+      @extend %extend_2;
+    }
+  }
+}
+.chosen-container-single {
+  .chosen-single {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 0 0 0 8px;
+    height: 25px;
+    border: 1px solid $color_silver_chalice_approx;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 5px;
+    background-color: $white;
+    background: linear-gradient($white 20%, $color_black_haze_approx 50%, $color_gallery_approx 52%, $wild_sand 100%);
+    //Instead of the line below you could use @include background-clip($clip)
+    background-clip: padding-box;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 0 3px $white inset, 0 1px 1px $black_10;
+    color: $color_tundora_approx;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 24px;
+    span {
+      display: block;
+      overflow: hidden;
+      margin-right: 26px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    abbr {
+      position: absolute;
+      top: 6px;
+      right: 26px;
+      display: block;
+      width: 12px;
+      height: 12px;
+      background: $url_0 -42px 1px no-repeat;
+      font-size: 1px;
+      &:hover {
+        background-position: -42px -10px;
+      }
+    }
+    div {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      width: 18px;
+      height: 100%;
+      b {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: $url_0 no-repeat 0 2px;
+      }
+    }
+  }
+  .chosen-default {
+    color: $color_mountain_mist_approx;
+  }
+  .chosen-search {
+    position: relative;
+    z-index: 1010;
+    margin: 0;
+    padding: 3px 4px;
+    white-space: nowrap;
+    input[type="text"] {
+      margin: 1px 0;
+      padding: 4px 20px 4px 5px;
+      width: 100%;
+      height: auto;
+      outline: 0;
+      border: 1px solid $color_silver_chalice_approx;
+      background: $url_0 no-repeat 100% -20px;
+      font-size: 1em;
+      font-family: $font_0;
+      line-height: normal;
+      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+      border-radius: 0;
+    }
+  }
+  .chosen-drop {
+    margin-top: -1px;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 0 0 4px 4px;
+    //Instead of the line below you could use @include background-clip($clip)
+    background-clip: padding-box;
+  }
+  .chosen-single-with-deselect span {
+    margin-right: 38px;
+  }
+  &.chosen-disabled .chosen-single abbr:hover {
+    background-position: -42px -10px;
+  }
+  &.chosen-container-single-nosearch .chosen-search {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(100% 100%);
+  }
+}
+.chosen-container-multi {
+  .chosen-choices {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0 5px;
+    width: 100%;
+    height: auto;
+    border: 1px solid $color_silver_chalice_approx;
+    background-color: $white;
+    background-image: linear-gradient($color_gallery_approx 1%, $white 15%);
+    cursor: text;
+    li {
+      float: left;
+      list-style: none;
+      &.search-field {
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+        input[type="text"] {
+          margin: 1px 0;
+          padding: 0;
+          height: 25px;
+          outline: 0;
+          border: 0 !important;
+          background: transparent !important;
+          //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+          box-shadow: none;
+          color: $color_mountain_mist_approx;
+          font-size: 100%;
+          font-family: $font_0;
+          line-height: normal;
+          //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+          border-radius: 0;
+          width: 25px;
+        }
+      }
+      &.search-choice {
+        position: relative;
+        margin: 3px 5px 3px 0;
+        padding: 3px 20px 3px 5px;
+        border: 1px solid $color_silver_chalice_approx;
+        max-width: 100%;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 3px;
+        background-color: $color_gallery_approx;
+        background-image: linear-gradient($wild_sand 20%, $color_gallery_approx 50%, $color_gray_nurse_approx 52%, $color_gallery_approx 100%);
+        background-size: 100% 19px;
+        background-repeat: repeat-x;
+        //Instead of the line below you could use @include background-clip($clip)
+        background-clip: padding-box;
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: 0 0 2px $white inset, 0 1px 0 $black_5;
+        color: $color_mine_shaft_approx;
+        line-height: 13px;
+        cursor: default;
+        span {
+          word-wrap: break-word;
+        }
+        .search-choice-close {
+          position: absolute;
+          top: 4px;
+          right: 3px;
+          display: block;
+          width: 12px;
+          height: 12px;
+          background: $url_0 -42px 1px no-repeat;
+          font-size: 1px;
+          &:hover {
+            background-position: -42px -10px;
+          }
+        }
+      }
+      &.search-choice-disabled {
+        padding-right: 5px;
+        border: 1px solid $color_celeste_approx;
+        background-color: $color_mercury_approx;
+        background-image: linear-gradient($wild_sand 20%, $color_gallery_approx 50%, $color_gray_nurse_approx 52%, $color_gallery_approx 100%);
+        color: $color_storm_dust_approx;
+      }
+      &.search-choice-focus {
+        background: $color_quill_gray_approx;
+        .search-choice-close {
+          background-position: -42px -10px;
+        }
+      }
+    }
+  }
+  .chosen-results {
+    margin: 0;
+    padding: 0;
+  }
+  .chosen-drop .result-selected {
+    display: list-item;
+    color: $color_celeste_approx;
+    cursor: default;
+  }
+}
+.chosen-container-active {
+  .chosen-single {
+    border: 1px solid $color_cornflower_blue_approx;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 0 5px $black_30;
+  }
+  .chosen-choices {
+    border: 1px solid $color_cornflower_blue_approx;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 0 5px $black_30;
+    li.search-field input[type="text"] {
+      color: $color_log_cabin_approx !important;
+    }
+  }
+  &.chosen-with-drop .chosen-single {
+    border: 1px solid $color_silver_chalice_approx;
+    //Instead of the line below you could use @include border-bottom-right-radius($radius)
+    border-bottom-right-radius: 0;
+    //Instead of the line below you could use @include border-bottom-left-radius($radius)
+    border-bottom-left-radius: 0;
+    background-image: linear-gradient($color_gallery_approx 20%, $white 80%);
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 1px 0 $white inset;
+    div {
+      border-left: none;
+      background: transparent;
+      b {
+        background-position: -18px 2px;
+      }
+    }
+  }
+}
+.chosen-disabled {
+  opacity: 0.5 !important;
+  cursor: default;
+  .chosen-single {
+    cursor: default;
+  }
+  .chosen-choices .search-choice .search-choice-close {
+    cursor: default;
+  }
+}
+.chosen-rtl {
+  text-align: right;
+  .chosen-single {
+    overflow: visible;
+    padding: 0 8px 0 0;
+    span {
+      margin-right: 0;
+      margin-left: 26px;
+      direction: rtl;
+    }
+    div {
+      right: auto;
+      left: 3px;
+    }
+    abbr {
+      right: auto;
+      left: 26px;
+    }
+  }
+  &.chosen-container-single {
+    .chosen-results {
+      margin: 0 0 4px 4px;
+      padding: 0 4px 0 0;
+    }
+    .chosen-single div b {
+      background-position: 6px 2px;
+    }
+    &.chosen-with-drop .chosen-single div b {
+      background-position: -12px 2px;
+    }
+  }
+  .chosen-single-with-deselect span {
+    margin-left: 38px;
+  }
+  .chosen-choices li {
+    float: right;
+    &.search-choice {
+      margin: 3px 5px 3px 0;
+      padding: 3px 5px 3px 19px;
+      .search-choice-close {
+        right: auto;
+        left: 4px;
+      }
+    }
+    &.search-field input[type="text"] {
+      direction: rtl;
+    }
+  }
+  .chosen-results li.group-option {
+    padding-right: 15px;
+    padding-left: 0;
+  }
+  &.chosen-container-active.chosen-with-drop .chosen-single div {
+    border-right: none;
+  }
+  .chosen-search input[type="text"] {
+    padding: 4px 5px 4px 20px;
+    background: $url_0 no-repeat -30px -20px;
+    direction: rtl;
+  }
+}
+@media only screen and(-webkit-min-device-pixel-ratio: 1.5), only screen and(min-resolution: 144dpi), only screen and(min-resolution: 1.5dppx) {
+  .chosen-container-single {
+    .chosen-single {
+      abbr {
+        background-image: $url_1 !important;
+        background-size: 52px 37px !important;
+        background-repeat: no-repeat !important;
+      }
+      div b {
+        background-image: $url_1 !important;
+        background-size: 52px 37px !important;
+        background-repeat: no-repeat !important;
+      }
+    }
+    .chosen-search input[type="text"] {
+      background-image: $url_1 !important;
+      background-size: 52px 37px !important;
+      background-repeat: no-repeat !important;
+    }
+  }
+  .chosen-container {
+    .chosen-results-scroll-down span {
+      background-image: $url_1 !important;
+      background-size: 52px 37px !important;
+      background-repeat: no-repeat !important;
+    }
+    .chosen-results-scroll-up span {
+      background-image: $url_1 !important;
+      background-size: 52px 37px !important;
+      background-repeat: no-repeat !important;
+    }
+  }
+  .chosen-rtl .chosen-search input[type="text"] {
+    background-image: $url_1 !important;
+    background-size: 52px 37px !important;
+    background-repeat: no-repeat !important;
+  }
+  .chosen-container-multi .chosen-choices .search-choice .search-choice-close {
+    background-image: $url_1 !important;
+    background-size: 52px 37px !important;
+    background-repeat: no-repeat !important;
+  }
+}

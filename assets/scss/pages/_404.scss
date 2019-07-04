@@ -1,0 +1,35 @@
+.error404 {
+	.four-zero-four {
+		.wrapper {
+			padding: 4rem 0;
+			display: flex;
+			@media (max-width: 600px) {
+				flex-wrap: wrap;
+			}
+			justify-content: space-between;
+		}
+		.error-message {
+			display: inline-block;
+			background: #f0f0f0;
+			padding: px(8) px(16);
+		}
+		background: white;
+	}
+	.left-content {
+		+ img {
+			max-width: 100%;
+		}
+		max-width: px(500);
+	}
+
+
+	h1 {
+		font-size: px(100);
+		color: #aaa;
+	}
+	.larger-text {
+		font-size: px(40);
+		margin-bottom: 20px;
+	}
+	background: white; 
+}

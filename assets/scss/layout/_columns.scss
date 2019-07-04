@@ -1,0 +1,95 @@
+.columns{
+    .column-image {
+        @extend %cover;
+    }
+    .column {
+        h3 {
+            @extend %font32;
+            padding-top: .6em;
+            padding-bottom: .6em;
+            font-weight: 700;
+        }
+        article {
+            color: $black;
+        }
+        background: white;
+        position: relative;
+    }
+}
+
+.columns {
+    &.columns-two,
+    &.columns-three {
+        .column {
+            width: 100%;
+            margin-bottom: 1rem;
+            @media (min-width: 768px) {
+                margin: 0 1rem 1rem;
+            }
+        }
+    }
+    &.columns-two {
+        .column {
+            &:nth-of-type(2n + 1) {
+                margin-left: 0;
+            }
+            &:nth-of-type(2n) {
+                margin-right: 0;
+            }
+            @media (min-width: 768px) {
+                width: calc( 50% - 1rem);
+            }
+        }
+    }
+    &.columns-three {
+        .column {
+            &:nth-of-type(3n + 1) {
+                margin-left: 0;
+            }
+            &:nth-of-type(3n) {
+                margin-right: 0;
+            }
+            @media (min-width: 768px) {
+                width: calc( 33.3333% - 1.5rem);
+            }
+        }
+    }
+    &.columns-four {
+        .column {
+            &:nth-of-type(4n + 1) {
+                margin-left: 0;
+            }
+            &:nth-of-type(4n) {
+                margin-right: 0;
+            }
+            @media (min-width: 768px) {
+                width: calc( 25% - 1.5rem);
+            }
+        }
+    }
+
+    @extend %flex;
+    flex-wrap: wrap;
+}
+
+
+
+.columns {
+    &.image_top_text_below .column,
+    &.image_right_text_left .column {
+        h3 {
+            text-transform: uppercase;
+        }
+        article {
+            @extend %padding-article-top;
+            @extend %padding-article-bottom;
+            @extend %padding-base-horizontal;
+        }
+    }
+}
+
+.columns.image_top_text_below .column {
+    .column-image {
+        padding-bottom: 95%;
+    }
+}

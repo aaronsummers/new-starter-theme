@@ -1,0 +1,16 @@
+section {   
+    &.no-padding-bottom {
+        padding-bottom: 0;
+    }
+    &.no-padding-top {
+        padding-top: 0;
+    }
+    &.add-padding-bottom {
+        @extend %padding-base-bottom-double;
+    }
+    &.add-padding-top {
+        @extend %padding-base-top-double;
+    }
+    @extend %padding-base-horizontal;
+    @extend %padding-base-vertical;
+}

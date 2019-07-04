@@ -1,0 +1,25 @@
+%margin-base-top {
+    $style: margin-top;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 20px, 60px);
+}
+%margin-base-bottom {
+    $style: margin-bottom;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 20px, 60px);
+}
+%margin-base-left {
+    $style: margin-left;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 10px, 30px);
+}
+%margin-base-right {
+    $style: margin-right;
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 10px, 30px);
+}
+
+%margin-base-vertical {
+    $style: (margin-top, margin-bottom);
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 20px, 60px);
+}
+%margin-base-horizontal {
+    $style: (margin-left, margin-right);
+     @include interpolate($style, $min_screen_mobile, $actual_design_width, 10px, 30px);
+}

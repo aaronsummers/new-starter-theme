@@ -1,0 +1,42 @@
+%font16 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 14px, 16px);
+}
+%font18 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 16px, 18px);
+}
+%font20 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 18px, 20px);
+}
+%font24 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 18px, 24px);
+}
+%font32 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 18px, 32px);
+}
+%font38 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 18px, 38px);
+}
+%font42 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 18px, 42px);
+}
+%font48 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 18px, 48px);
+}
+%font52 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 18px, 52px);
+}
+%font58 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 18px, 58px);
+}
+%font62 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 18px, 62px);
+}
+%font68 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 18px, 68px);
+}
+%font72 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 40px, 72px);
+}
+%font200 {
+    @include interpolate(font-size, $min_screen_mobile, $actual_design_width, 40px, 100px);
+}
